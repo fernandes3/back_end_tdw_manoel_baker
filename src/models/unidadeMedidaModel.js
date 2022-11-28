@@ -6,8 +6,11 @@ module.exports = {
         try {
 
             let unidade = await
-                connection('TB_UnidadeMedida')
-                    .select('*')
+                connection('TB_UnidadeMedida as u')
+                    .select(
+                        'u.IDUnidadeMedida as unityID',
+                        'u.Descricao as description'
+                    )
 
             return unidade
         } catch (error) {

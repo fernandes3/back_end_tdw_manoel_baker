@@ -62,6 +62,8 @@ module.exports = {
     ,
 
     async insertProduct(productObject) {
+
+        console.log(productObject)
         try {
             let product = await
                 connection('TB_Produtos')

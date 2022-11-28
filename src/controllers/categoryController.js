@@ -17,8 +17,9 @@ module.exports = {
 
     ,
     async create(req, res) {
-
+        
         const category = req.body
+        console.log(category);
         const response = await categoryModel.insertCategory(category);
         res.json(response);
 

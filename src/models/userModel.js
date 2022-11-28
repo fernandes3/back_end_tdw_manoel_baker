@@ -33,8 +33,8 @@ module.exports = {
                     .where('u.Login', login)
                     .andWhere('u.Senha', password)
 
-        console.log(user);
-            return user;
+            console.log(user);
+            return user[0];
         } catch (err) {
             return err;
         }
@@ -42,7 +42,7 @@ module.exports = {
 
     },
     async findUserById(idUser) {
-
+        console.log(idUser);
         try {
             const user = await
                 connection('TB_Usuario as u')
@@ -56,9 +56,11 @@ module.exports = {
                         'u.IDPerfil',
                         'p.Descricao'
                     )
+
                     .where('u.IDUsuario', idUser)
 
-            return user
+                        console.log(user);
+            return user[0]
         } catch (err) {
             return err
         }
@@ -67,9 +69,12 @@ module.exports = {
 
     async insertUser(userObject) {
         try {
+
             let user = await
                 connection('TB_Usuario')
                     .insert(userObject)
+
+            console.log(user)
             return user
         } catch (err) {
             return err
@@ -77,6 +82,7 @@ module.exports = {
     }
     ,
     async updateUser(userId, userObject) {
+
         try {
             let user = await
                 connection('TB_Usuario')

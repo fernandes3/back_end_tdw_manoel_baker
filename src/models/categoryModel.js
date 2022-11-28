@@ -42,10 +42,10 @@ module.exports = {
     async insertCategory(category) {
 
         try {
-            var category = await
+            var category2 = await
                 connection('TB_Categoria')
                     .insert(category);
-            return category;
+            return category2;
         } catch (err) {
             console.log(err)
         }

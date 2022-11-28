@@ -22,7 +22,7 @@ module.exports = {
         const response = await userModel.findUserByLoginAndPassword(user.login, user.senha);
       
         if(response.length == 0){
-            res.status(400).send('User not found');
+            res.status(404).send('User not fucking found');
         }else{
             res.json(response)
         }
@@ -30,8 +30,11 @@ module.exports = {
     }
     ,
     async create(req, res) {
+        
         const user = req.body
+       
         const response = await userModel.insertUser(user);
+        console.log(response);
         res.json(response);
 
     },

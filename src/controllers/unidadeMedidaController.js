@@ -16,6 +16,7 @@ module.exports = {
 
     ,
     async create(req, res) {
+        
         const unidade = req.body
         const response = await unidadeMedidaModel.insertUnidadeMedida(unidade);
         res.json(response);

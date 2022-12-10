@@ -11,12 +11,12 @@ module.exports = {
                     .innerJoin('TB_Perfil as p', 'u.IDPerfil', '=', 'p.IDPerfil')
                     .select(
                         'u.IDUsuario',
-                        'u.Login',
+                        'u.Login as Login',
                         'u.Nome',
-                        'u.Senha',
-                        'u.Status',
-                        'u.IDPerfil',
-                        'p.Descricao'
+                        'u.Senha as password',
+                        'u.Status as state',
+                        'u.IDPerfil as perfil',
+                        'p.Descricao as description'
                     )
 
             return user
@@ -96,6 +96,8 @@ module.exports = {
 
 
     async deleteUser(userId) {
+
+        console.log(userId)
         try {
             let user = await
                 connection('TB_Usuario')

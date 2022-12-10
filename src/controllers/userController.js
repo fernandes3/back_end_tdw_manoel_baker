@@ -38,7 +38,8 @@ module.exports = {
         res.json(response);
 
     },
-
+    
+    
     async update(req, res) {
         const { id } = req.params
         const user = req.body

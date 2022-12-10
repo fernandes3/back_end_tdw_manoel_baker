@@ -35,7 +35,7 @@ module.exports = {
             console.log(err);
         }
 
-        return categories;
+        return categories[0];
     }
     ,
 
